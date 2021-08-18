@@ -16,7 +16,7 @@ const Header = () => {
                 <ReactLogo className="HeaderLogo"/>
                 <div className="header_search">
                     <div className="icon"><SearchIcon /></div>
-                    <input type="text" />
+                    <input type="text" placeholder="Search"/>
                 </div>
             </div>
             <div className="header_right">

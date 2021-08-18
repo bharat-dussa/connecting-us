@@ -1,12 +1,29 @@
-import React from 'react'
-import {Container} from './layout-styled'
+import React from "react";
+import { Container } from "./layout-styled";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/userSlice";
+import SideBar from "../sidebar/sidebar-component";
+import FeedComponent from "../main-content";
+import LoginComponent from "../account/login-component";
 
 const LayoutOfTheApp = () => {
-    return (
-        <Container>
-            
-        </Container>
-    )   
-}
+  const user = useSelector(selectUser);
 
-export default LayoutOfTheApp
+  return (
+    <>
+      {!user ? (
+        <LoginComponent />
+      ) : (
+        <Container>
+          <div className="container">
+            <SideBar />
+            <FeedComponent />
+            <div className="end"></div>
+          </div>
+        </Container>
+      )}
+    </>
+  );
+};
+
+export default LayoutOfTheApp;
